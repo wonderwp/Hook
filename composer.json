@@ -16,14 +16,14 @@
         }
     ],
     "require": {
-        "php": "~5.6|~7"
+        "php": "~5.6|~7",
+        "wonderwp/dependency-injection": "dev-develop@dev"
     },
     "require-dev": {
-        "wonderwp/dependency-injection": "dev-develop@dev",
         "johnpbloch/wordpress": "^4.7"
     },
     "autoload": {
-        "psr-4": {"WonderWp\\Component\\Service\\": "src"},
+        "psr-4": {"WonderWp\\Component\\Hook\\": "src"},
         "exclude-from-classmap": [
             "/tests/"
         ]
