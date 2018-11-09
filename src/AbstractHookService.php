@@ -55,4 +55,9 @@ abstract class AbstractHookService extends AbstractService implements HookServic
         return $this->hookManager->addFilter($tag, $function_to_add, $priority, $accepted_args);
     }
 
+    public function removeFilter($tag, $function_to_remove, $priority = 10)
+    {
+        return $this->hookManager->removeFilter($tag, $function_to_remove, $priority = 10);
+    }
+
 }
