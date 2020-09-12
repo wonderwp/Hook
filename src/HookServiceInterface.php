@@ -2,11 +2,9 @@
 
 namespace WonderWp\Component\Hook;
 
-interface HookServiceInterface
+use WonderWp\Component\PluginSkeleton\Service\RegistrableInterface;
+
+interface HookServiceInterface extends RegistrableInterface
 {
-    /**
-     * Typically where you'll have all your add_action and add_filter calls
-     * @return static
-     */
-    public function run();
+
 }
