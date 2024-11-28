@@ -29,6 +29,28 @@ interface HookManagerInterface
     public function addAction($tag, $function_to_add, $priority = 10, $accepted_args = 1);
 
     /**
+     * Removes a callback function from an action hook.
+     *
+     * This can be used to remove default functions attached to a specific action
+     * hook and possibly replace them with a substitute.
+     *
+     * To remove a hook, the `$callback` and `$priority` arguments must match
+     * when the hook was added. This goes for both filters and actions. No warning
+     * will be given on removal failure.
+     *
+     * @since 1.2.0
+     *
+     * @param string                $hook_name The action hook to which the function to be removed is hooked.
+     * @param callable|string|array $callback  The name of the function which should be removed.
+     *                                         This function can be called unconditionally to speculatively remove
+     *                                         a callback that may or may not exist.
+     * @param int                   $priority  Optional. The exact priority used when adding the original
+     *                                         action callback. Default 10.
+     * @return bool Whether the function is removed.
+     */
+    function removeAction( $hook_name, $callback, $priority = 10 );    
+    
+    /**
      * Hook a function or method to a specific filter action.
      *
      * WordPress offers filter hooks to allow plugins to modify

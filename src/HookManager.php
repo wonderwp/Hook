@@ -11,6 +11,11 @@ class HookManager implements HookManagerInterface
         return add_action($tag, $function_to_add, $priority, $accepted_args);
     }
 
+    public function removeAction($tag, $function_to_remove, $priority = 10)
+    {
+        return remove_action($tag, $function_to_remove, $priority);
+    }
+
     /** @inheritdoc */
     public function addFilter($tag, $function_to_add, $priority = 10, $accepted_args = 1)
     {
