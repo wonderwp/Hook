@@ -3,10 +3,13 @@
 namespace WonderWp\Component\Hook;
 
 use WonderWp\Component\DependencyInjection\Container;
+use WonderWp\Component\Hook\Traits\HasHookAutoloader;
 use WonderWp\Component\PluginSkeleton\Service\RegistrableInterface;
 
-class HookService extends AbstractHookService
+class HookService extends AbstractHookService implements RegistrableInterface
 {
+    use HasHookAutoloader;
+    
     public function register()
     {
         $this->autoload();
@@ -34,15 +37,4 @@ class HookService extends AbstractHookService
 
         return $genericLoaded || $specificLoaded;
     }
-
-    public function autoload(array $classNameFromFiles = [], array $discoveryPaths = [], callable $successCallback = null): array
-    {
-        $defaultPaths = [
-            'hooks' => $this->manager->getConfig('path.root') . 'includes' . DIRECTORY_SEPARATOR . 'Hooks',
-        ];
-        $discoveryPaths = array_merge($defaultPaths, $discoveryPaths);
-        return parent::autoload($classNameFromFiles, $discoveryPaths, $successCallback);
-    }
-
-
 }
