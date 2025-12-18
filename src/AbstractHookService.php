@@ -5,9 +5,14 @@ namespace WonderWp\Component\Hook;
 use WonderWp\Component\DependencyInjection\Container;
 use WonderWp\Component\PluginSkeleton\AbstractManager;
 use WonderWp\Component\Service\AbstractService;
+use WonderWp\Component\Service\Traits\HasAutoloadingCapabilities;
+use WonderWp\Component\Hook\Traits\HasHookAutoloader;
 
 abstract class AbstractHookService extends AbstractService implements HookServiceInterface
 {
+    use HasAutoloadingCapabilities, HasHookAutoloader {
+        HasHookAutoloader::resolveDiscoveryPaths insteadof HasAutoloadingCapabilities;
+    }
     /** @var HookManager */
     private $hookManager;
 

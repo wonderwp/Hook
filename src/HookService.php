@@ -12,7 +12,7 @@ class HookService extends AbstractHookService implements RegistrableInterface
     
     public function register()
     {
-        $this->autoload();
+        $classNameFromFiles = $this->autoload();
     }
 
     /**
