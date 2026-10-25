@@ -19,7 +19,7 @@ abstract class AbstractHookService extends AbstractService implements HookServic
     /**
      * @inheritDoc
      */
-    public function __construct(AbstractManager $manager = null)
+    public function __construct(?AbstractManager $manager = null)
     {
         parent::__construct($manager);
         $this->hookManager = Container::getInstance()->offsetGet('wwp.hook.manager');
