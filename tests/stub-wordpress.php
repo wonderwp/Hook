@@ -15,6 +15,8 @@ namespace {
     if (!function_exists('remove_action')) {
         function remove_action($hook, $callback, $priority = 10)
         {
+            $GLOBALS['wwp_test_removed_actions'][] = compact('hook', 'callback', 'priority');
+
             return true;
         }
     }
@@ -31,6 +33,8 @@ namespace {
     if (!function_exists('remove_filter')) {
         function remove_filter($hook, $callback, $priority = 10)
         {
+            $GLOBALS['wwp_test_removed_filters'][] = compact('hook', 'callback', 'priority');
+
             return true;
         }
     }
